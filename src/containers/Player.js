@@ -3,7 +3,7 @@ import Audio from '../components/Audio'
 import Lyrics from '../components/Lyrics'
 import { connect } from 'react-redux'
 import { replaceLyrics } from '../Redux/actioncreator'
-import data from "../audio/3_doors_down-here_without_you.lrc"
+import data from "../audio/Firework-Katy_Perry.lrc"
 var Lrc = require('lrc-kit').Lrc
 
 
@@ -15,9 +15,10 @@ class JukeBox extends Component {
       .then(text  => {
         let lrc = Lrc.parse(text)
         console.log(lrc.info)
+        console.log(data)
         this.props.replaceLyrics(lrc.lyrics)
       })
-  }
+    }
 
 
 
@@ -25,6 +26,7 @@ class JukeBox extends Component {
 
   render(){
     console.log(data)
+    console.log(this.props.currentTime)
     const lyrics = this.props.myLyrics.map(lyric => <Lyrics key={lyric.timestamp} lyric={lyric}/>)
     return (
       <div>
@@ -37,7 +39,8 @@ class JukeBox extends Component {
 
 const mapStateToProps = state => {
   return {
-    myLyrics: state.lines
+    myLyrics: state.lines,
+    currentTime: state.secondsElapsed
   }
 
 }

@@ -1,6 +1,7 @@
 const initialState = {
   lines:[],
-  playing: false
+  playing: false,
+  secondsElapsed:0.00
 
 }
 
@@ -13,6 +14,10 @@ const reducer = (state=initialState,action) => {
     case "TOGGLE_BUTTON":
       console.log("YOU HIT THE TOGGLE BUTTON")
       return {...state, playing:action.payload}
+
+    case "INCREMENT_SECONDS":
+      console.log("YOU HIT THE INCREMENT REDUCER")
+      return {...state, secondsElapsed: state.secondsElapsed + 1}
 
 
     default:

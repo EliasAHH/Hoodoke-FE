@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import soundfile from "../audio/Firework-Katy_Perry.mp3"
 import { connect } from "react-redux"
-import { togglePlaying } from "../Redux/actioncreator"
+import { togglePlaying, incrementSeconds } from "../Redux/actioncreator"
 
 
 const song = new Audio(soundfile)
+song.preload = 'auto'
 
 const formattedSeconds = (sec) =>
   Math.floor(sec / 60) +
@@ -13,17 +14,13 @@ const formattedSeconds = (sec) =>
 
 
  class Songs extends Component {
-  state ={
-    secondsElapsed: 0,
-    lastClearedIncrementer: null
-  }
+
 
   handleClick= (e) => {
     this.incrementor = null
-    this.incrementer = setInterval( () =>
-      this.setState({
-        secondsElapsed: this.state.secondsElapsed + 1
-      })
+     this.incrementor= setInterval(() =>
+     this.props.incrementSeconds()
+
     , 1000);
 
     if (this.props.toggle === false) {
@@ -38,14 +35,11 @@ const formattedSeconds = (sec) =>
 
     handleStop = e => {
       clearInterval(this.incrementer);
-    this.setState({
-      lastClearedIncrementer: this.incrementer
-    });
   }
   render(){
     return (
       <div>
-        <h1> {formattedSeconds(this.state.secondsElapsed)} </h1>
+        <h1> {formattedSeconds(this.props.secondsElapsed)} </h1>
         <button onClick={this.handleStop}> STOP </button>
         <button onClick={this.handleClick}> Click me to start </button>
       </div>
@@ -55,14 +49,16 @@ const formattedSeconds = (sec) =>
 
 const mapStateToProps = state => {
   return {
-    toggle: state.playing
+    toggle: state.playing,
+    secondsElapsed: state.secondsElapsed
   }
 
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    togglePlaying: toggle => dispatch(togglePlaying(toggle))
+    togglePlaying: toggle => dispatch(togglePlaying(toggle)),
+    incrementSeconds: () => dispatch(incrementSeconds())
   }
 }
 

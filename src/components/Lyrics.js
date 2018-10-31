@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { nelly } from '../lrcHelper/nelly'
 
 
 export default class Lyrics extends Component {
@@ -8,6 +7,7 @@ export default class Lyrics extends Component {
     const { content, timestamp } = this.props.lyric
     return (
       <div>
+        {timestamp}
         {content}
       </div>
     )

@@ -10,3 +10,10 @@ export const togglePlaying = toggle => {
   }
 
 }
+
+export const incrementSeconds =  seconds => {
+  return {
+    type: "INCREMENT_SECONDS", payload: seconds
+  }
+
+}
