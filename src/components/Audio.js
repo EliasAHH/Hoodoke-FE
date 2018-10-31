@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
-import soundfile from "../audio/Usher-Confessions_Part_2.mp3"
-import { connect } from "react-redux"
-import { playing } from "../Redux/actioncreator"
+import soundfile from "../audio/Firework-Katy_Perry.mp3"
 
 
-class Audio extends Component {
+export default class Song extends Component {
   handleClick= (e) => {
     let song = new Audio(soundfile)
-    if (this.props.playing === false) {
-      song.play()
-    } else{
-        song.pause()
-    }
-    let results = !this.props.playing
-    this.props.playing(results)
+    console.log(song)
+    song.play()
 
   }
   render(){
@@ -24,17 +17,3 @@ class Audio extends Component {
     )
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    playing: state.playing
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    playing: toggle => dispatch(playing(toggle))
-  }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Audio)
