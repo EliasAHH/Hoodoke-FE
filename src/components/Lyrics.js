@@ -8,9 +8,7 @@ export default class Lyrics extends Component {
     const { content, timestamp } = this.props.lyric
     return (
       <div>
-        TimeStamp: {timestamp}
-        Lyrics : {content}
-
+        {content}
       </div>
     )
   }
