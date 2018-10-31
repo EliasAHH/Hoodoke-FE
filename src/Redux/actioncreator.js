@@ -4,7 +4,7 @@ export const replaceLyrics = lyrics => {
   }
 }
 
-export const playing = toggle => {
+export const togglePlaying = toggle => {
   return {
     type:"TOGGLE_BUTTON", payload:toggle
   }
