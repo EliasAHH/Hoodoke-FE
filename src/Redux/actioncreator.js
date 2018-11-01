@@ -1,6 +1,6 @@
 var Lrc = require('lrc-kit').Lrc
 
-export const replaceLyrics = lyrics => {
+const replaceLyrics = lyrics => {
   return {
     type:"REPLACE_LYRICS", payload:lyrics
   }
