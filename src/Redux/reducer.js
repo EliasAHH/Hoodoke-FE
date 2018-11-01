@@ -1,10 +1,9 @@
 const initialState = {
   lines:[],
   playing: false,
-  secondsElapsed:0.00
+  secondsElapsed:0
 
 }
-
 const reducer = (state=initialState,action) => {
   switch (action.type) {
     case "REPLACE_LYRICS":

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Audio from '../components/Audio'
 import Lyrics from '../components/Lyrics'
 import { connect } from 'react-redux'
-import { replaceLyrics } from '../Redux/actioncreator'
+import { loadLyrics } from '../Redux/actioncreator'
 import data from "../audio/Firework-Katy_Perry.lrc"
 var Lrc = require('lrc-kit').Lrc
 
@@ -10,45 +10,40 @@ var Lrc = require('lrc-kit').Lrc
 class JukeBox extends Component {
 
   componentDidMount = () => {
-    fetch("/static/media/Firework-Katy_Perry.4628bad3.lrc")
-      .then((r) => r.text())
-      .then(text  => {
-        let lrc = Lrc.parse(text)
-        console.log(lrc.info)
-        console.log(data)
-        this.props.replaceLyrics(lrc.lyrics)
-      })
+    this.props.loadLyrics()
     }
 
+    renderLyrics = () => {
+         for (let i=0; i<this.props.myLyrics.length;i++) {
+          if(this.props.myLyrics[i].timestamp < this.props.currentTime && this.props.myLyrics[i+1].timestamp > this.props.currentTime){
+            return <Lyrics  key={this.props.myLyrics[i].timestamp} lyric={this.props.myLyrics[i]} />
 
+          }
+        }
+    }
 
-
-
-  render(){
-    console.log(data)
-    console.log(this.props.currentTime)
-    const lyrics = this.props.myLyrics.map(lyric => <Lyrics key={lyric.timestamp} lyric={lyric}/>)
-    return (
-      <div>
-        <Audio />
-        {lyrics}
-      </div>
-    )
-  }
-}
-
-const mapStateToProps = state => {
-  return {
-    myLyrics: state.lines,
-    currentTime: state.secondsElapsed
+    render(){
+      return (
+        <div>
+          <Audio />
+          {this.renderLyrics()}
+        </div>
+      )
+    }
   }
 
-}
 
-const mapDispatchToProps = dispatch => {
-  return {
-    replaceLyrics: lyrics => dispatch(replaceLyrics(lyrics))
+  const mapStateToProps = state => {
+    return {
+      myLyrics: state.lines,
+      currentTime: state.secondsElapsed
+    }
   }
-}
 
-export default connect(mapStateToProps,mapDispatchToProps)(JukeBox)
+
+
+
+
+
+
+export default connect(mapStateToProps,{ loadLyrics })(JukeBox)

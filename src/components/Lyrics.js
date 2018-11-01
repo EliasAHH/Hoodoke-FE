@@ -5,9 +5,9 @@ export default class Lyrics extends Component {
 
   render(){
     const { content, timestamp } = this.props.lyric
+    console.log(content)
     return (
       <div>
-        {timestamp}
         {content}
       </div>
     )
