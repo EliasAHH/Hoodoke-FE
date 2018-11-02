@@ -32,10 +32,24 @@ export const handleSubmit = (user) => {
     .then(response => response.json())
     .then(response =>
       dispatch({type:"LOG_IN_SIGN_UP", payload:response}))
-
+    }
   }
 
-}
+  export const handleSignup = (user) => {
+    return dispatch => {
+      fetch('http://localhost:3001/users', {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
+      .then(response => response.json())
+      .then(response =>
+        dispatch({type:"SIGN_UP",payload:response}))
+      }
+
+  }
 
 export const loadLyrics = () => {
   return dispatch => {
@@ -69,5 +83,4 @@ export const removeCurrentUser = () => {
   return dispatch => {
     dispatch({type:"CLEAR_USER"})
   }
-
 }

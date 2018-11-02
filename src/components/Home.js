@@ -7,6 +7,8 @@ class Home extends Component {
   componentDidMount = () => {
     if(localStorage.getItem("token")) {
       this.props.fetchUser(localStorage.token)
+    } else if(!localStorage.getItem("token") && this.props.currentUser != null ) {
+      console.log(this.props.currentUser)
     }
   }
 
@@ -22,8 +24,7 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser,
-    authCurrentUser: state.authCurrentUser
+    currentUser: state.currentUser
   }
 
 }

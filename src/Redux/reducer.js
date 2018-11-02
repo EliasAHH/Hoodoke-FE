@@ -33,6 +33,11 @@ const reducer = (state=initialState,action) => {
       console.log("YOU HIT CLEAR USER")
       return {...state, authCurrentUser:{},currentUser:null}
 
+    case "SIGN_UP":
+      console.log("YOU HIT SIGNUP USER")
+      return {...state, CurrentUser:action.payload}
+
+
 
     default:
     return state
