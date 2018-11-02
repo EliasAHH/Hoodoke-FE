@@ -1,7 +1,9 @@
 const initialState = {
   lines:[],
   playing: false,
-  secondsElapsed:0
+  secondsElapsed:0,
+  currentUser:null,
+  authCurrentUser:{}
 
 }
 const reducer = (state=initialState,action) => {
@@ -17,6 +19,19 @@ const reducer = (state=initialState,action) => {
     case "INCREMENT_SECONDS":
       console.log("YOU HIT THE INCREMENT REDUCER")
       return {...state, secondsElapsed: state.secondsElapsed + 1}
+
+    case "LOG_IN_SIGN_UP":
+      console.log("YOU HIT THE LOG IN SIGN UP REDUCER ")
+      localStorage.setItem("token", action.payload.jwt)
+      return {...state, currentUser:action.payload}
+
+    case "GET_USER":
+      console.log("YOU HIT THE GET USER REDUCER")
+      return {...state, authCurrentUser:action.payload}
+
+    case "CLEAR_USER":
+      console.log("YOU HIT CLEAR USER")
+      return {...state, authCurrentUser:{},currentUser:null}
 
 
     default:

@@ -20,6 +20,23 @@ export const incrementSeconds =  seconds => {
 
 }
 
+export const handleSubmit = (user) => {
+  return dispatch => {
+    fetch("http://localhost:3001/auth", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+    .then(response => response.json())
+    .then(response =>
+      dispatch({type:"LOG_IN_SIGN_UP", payload:response}))
+
+  }
+
+}
+
 export const loadLyrics = () => {
   return dispatch => {
     fetch("/static/media/Firework-Katy_Perry.4628bad3.lrc")
@@ -30,4 +47,27 @@ export const loadLyrics = () => {
       })
 
   }
+}
+
+export const fetchUser = (token) => {
+  return dispatch => {
+    fetch("http://localhost:3001/current_user", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: token
+      }
+    })
+    .then(response => response.json())
+    .then(response =>
+      dispatch({type:"GET_USER", payload:response}))
+  }
+}
+
+export const removeCurrentUser = () => {
+  return dispatch => {
+    dispatch({type:"CLEAR_USER"})
+  }
+
 }
