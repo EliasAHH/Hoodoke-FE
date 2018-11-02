@@ -14,7 +14,7 @@ class Navbar extends Component {
   render(){
     return (
       <div>
-        {localStorage.reduxState ? <Link to="/login" onClick={this.handleLogout}> Logout </Link> : <Link to="/login" onClick={this.handleLogout}> Logout </Link>}
+        {localStorage.token ? <Link to="/login" onClick={this.handleLogout}> Logout </Link> : <Link to="/login" onClick={this.handleLogout}> Logout </Link>}
        </div>
     )
   }

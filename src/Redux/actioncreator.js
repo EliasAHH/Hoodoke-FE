@@ -46,7 +46,7 @@ export const handleSubmit = (user) => {
       })
       .then(response => response.json())
       .then(response =>
-        dispatch({type:"SIGN_UP",payload:response}))
+        dispatch({type:"LOG_IN_SIGN_UP",payload:response}))
       }
 
   }

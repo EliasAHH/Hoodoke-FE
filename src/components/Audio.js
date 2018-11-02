@@ -7,21 +7,15 @@ import { togglePlaying, incrementSeconds } from "../Redux/actioncreator"
 const song = new Audio(soundfile)
 song.preload = 'auto'
 
-const formattedSeconds = (sec) =>
-  Math.floor(sec / 60) +
-    ':' +
-  ('0' + sec % 60).slice(-2)
-
 
  class Songs extends Component {
 
 
   handleClick= (e) => {
-    this.incrementor = null
-     this.incrementor= setInterval(() =>
-     this.props.incrementSeconds()
+    this.incrementer = setInterval(() =>
+    this.props.incrementSeconds()
 
-    , 1000);
+   , 1000);
 
     if (this.props.toggle === false) {
       song.play()
@@ -33,14 +27,9 @@ const formattedSeconds = (sec) =>
 
   }
 
-    handleStop = e => {
-      clearInterval(this.incrementer);
-  }
   render(){
     return (
       <div>
-        <h1> {formattedSeconds(this.props.secondsElapsed)} </h1>
-        <button onClick={this.handleStop}> STOP </button>
         <button onClick={this.handleClick}> Click me to start </button>
       </div>
     )
