@@ -53,7 +53,7 @@ export const handleSubmit = (user) => {
 
 export const loadLyrics = () => {
   return dispatch => {
-    fetch("/static/media/Firework-Katy_Perry.4628bad3.lrc")
+    fetch("/static/media/Firework-Katy_Perry.80a827eb.lrc")
       .then((r) => r.text())
       .then(text  => {
         let lrc = Lrc.parse(text)
@@ -83,4 +83,20 @@ export const removeCurrentUser = () => {
   return dispatch => {
     dispatch({type:"CLEAR_USER"})
   }
+}
+
+
+export const getSongs = () => {
+  return dispatch => {
+    fetch("http://localhost:3001/songs")
+    .then(response => response.json())
+    .then(songs => dispatch({type:"REPLACE_SONGS", payload:songs}))
+  }
+}
+
+export const storeSong = song => {
+  return dispatch => {
+    dispatch({type:"CURRENT_SONG_CHOSEN",payload:song})
+  }
+
 }

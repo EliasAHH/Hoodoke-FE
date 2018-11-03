@@ -3,12 +3,15 @@ const initialState = {
   playing: false,
   secondsElapsed:0,
   currentUser:null,
-  authCurrentUser:{}
+  authCurrentUser:{},
+  songs:[],
+  currentSong: {}
 
 }
 const reducer = (state=initialState,action) => {
   switch (action.type) {
     case "REPLACE_LYRICS":
+    console.log(action.payload)
     console.log("YOU HIT THE REPLACE REDUCER")
       return {...state, lines: action.payload }
 
@@ -32,6 +35,14 @@ const reducer = (state=initialState,action) => {
     case "CLEAR_USER":
       console.log("YOU HIT CLEAR USER")
       return {...state, authCurrentUser:{},currentUser:null}
+
+    case "REPLACE_SONGS":
+      console.log("YOU HIT THE REPALCE SONGS REDUCER")
+      return {...state, songs: action.payload}
+
+    case "CURRENT_SONG_CHOSEN":
+      console.log("YOU HIT THE CURRENT SONG ")
+      return {...state, currentSong:action.payload}
 
 
     default:

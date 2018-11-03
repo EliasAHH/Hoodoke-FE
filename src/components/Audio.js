@@ -8,25 +8,31 @@ const song = new Audio(soundfile)
 song.preload = 'auto'
 
 
- class Songs extends Component {
+ class Music extends Component {
 
 
   handleClick= (e) => {
-    this.incrementer = setInterval(() =>
-    this.props.incrementSeconds()
-
-   , 1000);
-
+    this.incrementor = null
     if (this.props.toggle === false) {
       song.play()
+      this.incrementor = setInterval(() =>
+      this.props.incrementSeconds()
+
+     , 1000);
+      console.log("SONG IS PLAYING")
     } else {
         song.pause()
+        clearInterval(this.incrementer)
+        console.log("SONG IS PAUSED")
     }
     let results = !this.props.toggle
     this.props.togglePlaying(results)
 
   }
 
+    handleStop = e => {
+      clearInterval(this.incrementer);
+  }
   render(){
     return (
       <div>
@@ -51,4 +57,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Songs)
+export default connect(mapStateToProps,mapDispatchToProps)(Music)

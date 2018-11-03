@@ -20,7 +20,7 @@ class Login extends Component {
   submitHandler = (event) => {
     event.preventDefault()
     this.props.handleSubmit(this.state)
-    this.props.history.push('/home')
+    this.props.history.push('/songs')
   }
 
   render(){

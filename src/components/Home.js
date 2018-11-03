@@ -4,30 +4,29 @@ import { fetchUser } from '../Redux/actioncreator'
 import Navbar from './Navbar'
 class Home extends Component {
 
-  componentDidMount = () => {
-    if(localStorage.getItem("token")) {
-      this.props.fetchUser(localStorage.token)
-    } else if(!localStorage.getItem("token") && this.props.currentUser != null ) {
-      console.log(this.props.currentUser)
-    }
-  }
+  // componentDidMount = () => {
+  //   if(localStorage.getItem("token")) {
+  //     this.props.fetchUser(localStorage.token)
+  //   } else if(!localStorage.getItem("token") && this.props.currentUser != null ) {
+  //     console.log(this.props.currentUser)
+  //   }
+  // }
 
   render(){
-    console.log(this.props.authCurrentUser)
     return(
       <div>
-        <Navbar />
+        Welcome To Hoodoke!
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.currentUser
-  }
+// const mapStateToProps = state => {
+//   return {
+//     currentUser: state.currentUser
+//   }
+//
+// }
 
-}
 
-
-export default connect(mapStateToProps, { fetchUser })(Home)
+export default Home

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment } from 'react';
 import {  Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { removeCurrentUser } from '../Redux/actioncreator'
@@ -8,14 +8,25 @@ class Navbar extends Component {
   handleLogout = () => {
     localStorage.removeItem("token")
     this.props.removeCurrentUser()
+  }
 
+  whatToDisplay = () => {
+    if (localStorage.token) {
+      return <Link to="/home" onClick={this.handleLogout}> Logout </Link>
+    } else {
+      return (<Fragment>
+        <Link to="/login"> Login </Link>
+        <Link to="/Signup">Signup</Link>
+      </Fragment>)
+    }
 
   }
   render(){
     return (
       <div>
-        {localStorage.token ? <Link to="/login" onClick={this.handleLogout}> Logout </Link> : <Link to="/login" onClick={this.handleLogout}> Logout </Link>}
-       </div>
+        {this.whatToDisplay()}
+      </div>
+
     )
   }
 }
