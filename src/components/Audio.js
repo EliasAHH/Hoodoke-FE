@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
-import soundfile from "../audio/Firework-Katy_Perry.mp3"
+import soundfile from "../audio/firework-katy_perry.mp3"
 import { connect } from "react-redux"
 import { togglePlaying, incrementSeconds } from "../Redux/actioncreator"
 
-
-const song = new Audio(soundfile)
-song.preload = 'auto'
+let song;
+let incrementor;
 
 
  class Music extends Component {
 
+   componentDidMount () {
+     song = new Audio(renderSongPath(this.props.currentSong))
+     console.log(song)
+     song.preload = 'auto'
+   }
+
 
   handleClick= (e) => {
-    this.incrementor = null
     if (this.props.toggle === false) {
       song.play()
-      this.incrementor = setInterval(() =>
+      setInterval(() =>
       this.props.incrementSeconds()
 
      , 1000);
       console.log("SONG IS PLAYING")
     } else {
         song.pause()
-        clearInterval(this.incrementer)
+        clearInterval(incrementor)
         console.log("SONG IS PAUSED")
     }
     let results = !this.props.toggle
@@ -30,8 +34,8 @@ song.preload = 'auto'
 
   }
 
-    handleStop = e => {
-      clearInterval(this.incrementer);
+  componentWillUnmount() {
+    clearInterval(incrementor)
   }
   render(){
     return (
@@ -42,10 +46,15 @@ song.preload = 'auto'
   }
 }
 
+const renderSongPath = (currentSong) => {
+  return `../audio/${currentSong.song}-${currentSong.artist}`
+
+}
+
 const mapStateToProps = state => {
   return {
     toggle: state.playing,
-    secondsElapsed: state.secondsElapsed
+    currentSong:state.currentSong
   }
 
 }

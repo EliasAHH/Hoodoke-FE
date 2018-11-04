@@ -5,7 +5,9 @@ import { connect } from 'react-redux'
 
 class Song extends Component {
   handleClick = event => {
+    // console.log(this.props.song)
     this.props.storeSong(this.props.song)
+    this.props.history.push(`jukebox/${this.props.song.artist}`)
 
   }
   render(){

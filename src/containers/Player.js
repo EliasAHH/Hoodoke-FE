@@ -3,14 +3,16 @@ import Audio from '../components/Audio'
 import Lyrics from '../components/Lyrics'
 import { connect } from 'react-redux'
 import { loadLyrics } from '../Redux/actioncreator'
-import data from "../audio/3_doors_down-here_without_you.lrc"
+import here from "../audio/here_without_you-3_doors_down.lrc"
+import firework from '../audio/firework-katy_perry.lrc'
 
 
 class JukeBox extends Component {
 
   componentDidMount = () => {
-    this.props.loadLyrics()
-    console.log(data)
+    this.props.loadLyrics(this.props.currentSong)
+    console.log(here)
+    console.log(firework)
     }
 
     renderLyrics = () => {
@@ -37,7 +39,8 @@ class JukeBox extends Component {
   const mapStateToProps = state => {
     return {
       myLyrics: state.lines,
-      currentTime: state.secondsElapsed
+      currentTime: state.secondsElapsed,
+      currentSong: state.currentSong
     }
   }
 

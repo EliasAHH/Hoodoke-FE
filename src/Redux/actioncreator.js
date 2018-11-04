@@ -51,9 +51,9 @@ export const handleSubmit = (user) => {
 
   }
 
-export const loadLyrics = () => {
+export const loadLyrics = (song) => {
   return dispatch => {
-    fetch("/static/media/Firework-Katy_Perry.80a827eb.lrc")
+    fetch(song.path)
       .then((r) => r.text())
       .then(text  => {
         let lrc = Lrc.parse(text)
