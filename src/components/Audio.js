@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import soundfile from "../audio/firework-katy_perry.mp3"
 import { connect } from "react-redux"
 import { togglePlaying, incrementSeconds, resetSeconds } from "../Redux/actioncreator"
-import firework from '../audio/firework-katy_perry.mp3'
-import three from '../audio/firework-katy_perry.mp3'
 
 
 

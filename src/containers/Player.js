@@ -3,8 +3,8 @@ import Audio from '../components/Audio'
 import Lyrics from '../components/Lyrics'
 import { connect } from 'react-redux'
 import { loadLyrics } from '../Redux/actioncreator'
-import here from "../audio/here_without_you-3_doors_down.lrc"
-import firework from '../audio/firework-katy_perry.lrc'
+import here from "../lrc/here_without_you-3_doors_down.lrc"
+import firework from '../lrc/firework-katy_perry.lrc'
 
 
 class JukeBox extends Component {
