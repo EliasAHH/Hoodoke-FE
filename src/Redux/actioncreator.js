@@ -100,3 +100,10 @@ export const storeSong = song => {
   }
 
 }
+
+export const resetSeconds = () => {
+  return dispatch => {
+    dispatch({type:"RESET"})
+  }
+
+}

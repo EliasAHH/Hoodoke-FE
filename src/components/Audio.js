@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
 import soundfile from "../audio/firework-katy_perry.mp3"
 import { connect } from "react-redux"
-import { togglePlaying, incrementSeconds } from "../Redux/actioncreator"
+import { togglePlaying, incrementSeconds, resetSeconds } from "../Redux/actioncreator"
 
-let song;
-let incrementor;
 
 
  class Music extends Component {
 
-   componentDidMount () {
-     song = new Audio(renderSongPath(this.props.currentSong))
-     console.log(song)
-     song.preload = 'auto'
+   componentDidMount() {
+    this.song = new Audio(`../audio/firework-katy_perry`)
+    this.song.preload = 'auto'
    }
 
 
   handleClick= (e) => {
     if (this.props.toggle === false) {
-      song.play()
-      setInterval(() =>
+      this.song.play()
+      this.incrementor = setInterval(() =>
       this.props.incrementSeconds()
 
      , 1000);
       console.log("SONG IS PLAYING")
     } else {
-        song.pause()
-        clearInterval(incrementor)
+        this.song.pause()
+        clearInterval(this.incrementor)
         console.log("SONG IS PAUSED")
     }
     let results = !this.props.toggle
@@ -35,7 +32,9 @@ let incrementor;
   }
 
   componentWillUnmount() {
-    clearInterval(incrementor)
+    clearInterval(this.incrementor)
+    this.props.resetSeconds()
+
   }
   render(){
     return (
@@ -59,11 +58,5 @@ const mapStateToProps = state => {
 
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    togglePlaying: toggle => dispatch(togglePlaying(toggle)),
-    incrementSeconds: () => dispatch(incrementSeconds())
-  }
-}
 
-export default connect(mapStateToProps,mapDispatchToProps)(Music)
+export default connect(mapStateToProps,{togglePlaying,incrementSeconds,resetSeconds})(Music)
