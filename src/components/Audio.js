@@ -2,27 +2,25 @@ import React, { Component } from 'react';
 import soundfile from "../audio/firework-katy_perry.mp3"
 import { connect } from "react-redux"
 import { togglePlaying, incrementSeconds, resetSeconds } from "../Redux/actioncreator"
+import firework from '../audio/firework-katy_perry.mp3'
+import three from '../audio/firework-katy_perry.mp3'
 
 
 
  class Music extends Component {
 
-   componentDidMount() {
-    this.song = new Audio(`../audio/firework-katy_perry`)
-    this.song.preload = 'auto'
-   }
-
 
   handleClick= (e) => {
+    let song = document.querySelector("#song")
     if (this.props.toggle === false) {
-      this.song.play()
+      song.play()
       this.incrementor = setInterval(() =>
       this.props.incrementSeconds()
 
      , 1000);
       console.log("SONG IS PLAYING")
     } else {
-        this.song.pause()
+        song.pause()
         clearInterval(this.incrementor)
         console.log("SONG IS PAUSED")
     }
@@ -40,13 +38,14 @@ import { togglePlaying, incrementSeconds, resetSeconds } from "../Redux/actioncr
     return (
       <div>
         <button onClick={this.handleClick}> Click me to start </button>
+        <audio id="song" src={renderSongPath(this.props.currentSong)}/>
       </div>
     )
   }
 }
 
 const renderSongPath = (currentSong) => {
-  return `../audio/${currentSong.song}-${currentSong.artist}`
+  return `/audio/${currentSong.song}-${currentSong.artist}.mp3`
 
 }
 

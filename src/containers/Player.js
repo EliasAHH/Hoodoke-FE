@@ -21,6 +21,9 @@ class JukeBox extends Component {
 
             return <Lyrics  key={this.props.myLyrics[i].timestamp} lyric={this.props.myLyrics[i]} />
           }
+          // else if(this.props.myLyrics[i+1].timestamp === undefined) {
+          //   return <Lyrics key={this.props.myLyrics[i].timestamp} lyric={this.props.myLyrics} />
+          // }
         }
     }
 
