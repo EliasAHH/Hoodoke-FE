@@ -22,8 +22,9 @@ class Login extends Component {
     this.props.handleSubmit(this.state)
     this.props.history.push('/songs')
   }
-
+//
   render(){
+    console.log()
     return (
       <form onSubmit={this.submitHandler}>
             <label>Username</label>

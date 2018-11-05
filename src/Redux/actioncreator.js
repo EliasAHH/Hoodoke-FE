@@ -53,7 +53,6 @@ export const handleSubmit = (user) => {
 
 export const loadLyrics = (song) => {
   return dispatch => {
-    debugger
     fetch(song.path)
       .then((r) => r.text())
       .then(text  => {
