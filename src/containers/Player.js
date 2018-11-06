@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Audio from '../components/Audio'
+import Speech from '../components/Speech'
 import Lyrics from '../components/Lyrics'
 import { connect } from 'react-redux'
 import { loadLyrics } from '../Redux/actioncreator'
@@ -11,6 +12,7 @@ class JukeBox extends Component {
 
   componentDidMount = () => {
     this.props.loadLyrics(this.props.currentSong)
+    console.log(this.props.currentSong)
     console.log(here)
     console.log(firework)
     }
@@ -31,6 +33,7 @@ class JukeBox extends Component {
       console.log(this.props.currentTime)
       return (
         <div>
+          <Speech />
           <Audio />
           {this.renderLyrics()}
         </div>

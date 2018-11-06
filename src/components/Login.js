@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { handleSubmit } from '../Redux/actioncreator'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 
 class Login extends Component {
@@ -22,7 +22,7 @@ class Login extends Component {
     this.props.handleSubmit(this.state)
     this.props.history.push('/songs')
   }
-//
+
   render(){
     console.log()
     return (

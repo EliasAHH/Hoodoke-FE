@@ -15,10 +15,11 @@ class App extends Component {
     if(localStorage.getItem("token")) {
       this.props.fetchUser(localStorage.token)
     }
+    console.log(this.props.authCurrentUser)
   }
 
   render() {
-     console.log(this.props.currentUser)
+     console.log(this.props.authCurrentUser)
     return (
       <div>
         <Navbar/>
@@ -36,7 +37,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     currentUser: state.currentUser,
-    authCurrentUser: state.authCurrentUser
+    authCurrentUser:state.authCurrentUser
   }
 
 }

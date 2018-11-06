@@ -1,5 +1,5 @@
 import React, { Component,Fragment } from 'react';
-import {  Link } from 'react-router-dom'
+import {  Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { removeCurrentUser } from '../Redux/actioncreator'
 
@@ -8,6 +8,7 @@ class Navbar extends Component {
   handleLogout = () => {
     localStorage.removeItem("token")
     this.props.removeCurrentUser()
+    this.props.history.push('/login')
   }
 
   whatToDisplay = () => {
@@ -31,4 +32,4 @@ class Navbar extends Component {
   }
 }
 
-export default connect(null,{removeCurrentUser})(Navbar)
+export default withRouter(connect(null,{removeCurrentUser})(Navbar))
