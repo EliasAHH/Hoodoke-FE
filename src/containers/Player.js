@@ -5,6 +5,8 @@ import Lyrics from '../components/Lyrics'
 import { connect } from 'react-redux'
 import { loadLyrics } from '../Redux/actioncreator'
 import here from "../lrc/here_without_you-3_doors_down.lrc"
+import wreck from "../lrc/wrecking_ball-miley_cyrus.lrc"
+import backstreet from "../lrc/i_want_it_that_way-backstreet_boys.lrc"
 import firework from '../lrc/firework-katy_perry.lrc'
 
 
@@ -13,8 +15,8 @@ class JukeBox extends Component {
   componentDidMount = () => {
     this.props.loadLyrics(this.props.currentSong)
     console.log(this.props.currentSong)
-    console.log(here)
-    console.log(firework)
+    console.log(backstreet)
+    console.log(wreck)
     }
 
     renderLyrics = () => {

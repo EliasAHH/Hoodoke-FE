@@ -5,7 +5,7 @@ const initialState = {
   currentUser:null,
   authCurrentUser:{},
   songs:[],
-  currentSong: null
+  currentSong: {}
 
 }
 const reducer = (state=initialState,action) => {

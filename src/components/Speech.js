@@ -8,7 +8,7 @@ class Speech extends Component {
   }
 
   render() {
-    const { transcript, resetTranscript, browserSupportsSpeechRecognition, startListening, stopListening, finalTranscript } = this.props
+    const { transcript, resetTranscript, browserSupportsSpeechRecognition, startListening, stopListening, finalTranscript, recognition } = this.props
 
     if (!browserSupportsSpeechRecognition) {
       return null
@@ -24,10 +24,11 @@ class Speech extends Component {
     const listenSpeech = () => {
       if(this.state.toggle === true ) {
         startListening()
-        console.log("in the true block", finalTranscript)
+        console.log("in the true block", transcript,finalTranscript)
       }
       else{
         stopListening()
+        resetTranscript()
         console.log("in the else block", finalTranscript)
       }
 
@@ -36,13 +37,12 @@ class Speech extends Component {
     const componentWillUnmount = () => {
       stopListening()
       resetTranscript()
-      console.log(finalTranscript)
     }
-    console.log(finalTranscript)
 
     return (
       <div>
         <button onClick={handleClick}>Reset</button>
+        <span>{finalTranscript}</span>
       </div>
     )
   }

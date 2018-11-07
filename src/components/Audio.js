@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { togglePlaying, incrementSeconds, resetSeconds } from "../Redux/actioncreator"
+import SpeechRecognition from 'react-speech-recognition'
 
 
 
@@ -8,6 +9,7 @@ import { togglePlaying, incrementSeconds, resetSeconds } from "../Redux/actioncr
 
 
   handleClick= (e) => {
+    console.log("this is the listening boolenan ",this.props.listening, 'this is the start recognition function', this.props.startListening )
     let song = document.querySelector("#song")
     if (this.props.toggle === false) {
       song.play()
@@ -32,6 +34,8 @@ import { togglePlaying, incrementSeconds, resetSeconds } from "../Redux/actioncr
 
   }
   render(){
+
+    console.log(this.props)
     return (
       <div>
         <button onClick={this.handleClick}> Click me to start </button>
