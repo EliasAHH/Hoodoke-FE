@@ -27,16 +27,15 @@ class Speech extends Component {
         console.log("in the true block", transcript,finalTranscript)
       }
       else{
+        console.log("in the else block")
         stopListening()
-        resetTranscript()
-        console.log("in the else block", finalTranscript)
       }
 
     }
 
     const componentWillUnmount = () => {
       stopListening()
-      resetTranscript()
+      transcript = ""
     }
 
     return (

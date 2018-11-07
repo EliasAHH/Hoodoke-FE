@@ -8,17 +8,16 @@ class Navbar extends Component {
   handleLogout = () => {
     localStorage.removeItem("token")
     this.props.removeCurrentUser()
-    this.props.history.push('/login')
   }
 
   whatToDisplay = () => {
-    if (localStorage.token) {
-      return <Link to="/home" onClick={this.handleLogout}> Logout </Link>
-    } else {
+    if (localStorage.token === undefined) {
       return (<Fragment>
         <Link to="/login"> Login </Link>
         <Link to="/Signup">Signup</Link>
       </Fragment>)
+    } else {
+      return <Link to="/home" onClick={this.handleLogout}> Logout </Link>
     }
 
   }
