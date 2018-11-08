@@ -15,11 +15,6 @@ class Speech extends Component {
       return null
     }
 
-    const componentWillUnmount = () => {
-      stopListening()
-      transcript = ""
-    }
-
     return (
       <div>
         <Audio startListen={startListening} endListen={stopListening} final={finalTranscript}/>
