@@ -27,7 +27,7 @@ class JukeBox extends Component {
     }
 
     render(){
-      console.log(this.props.currentTime)
+      console.log(Math.round(this.props.currentTime).toFixed(3))
       return (
         <div>
           <Speech />

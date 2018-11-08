@@ -51,6 +51,7 @@ import SpeechRecognition from 'react-speech-recognition'
 
   componentWillUnmount() {
     clearInterval(this.incrementor)
+    this.props.togglePlaying(false)
     this.props.resetSeconds()
     this.props.endListen()
 
