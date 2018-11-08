@@ -2,31 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchUser } from '../Redux/actioncreator'
 import Navbar from './Navbar'
-class Home extends Component {
+import {  Link, withRouter } from 'react-router-dom'
+import 'semantic-ui-css/semantic.min.css';
+import { Segment, Divider } from 'semantic-ui-react'
 
-  // componentDidMount = () => {
-  //   if(localStorage.getItem("token")) {
-  //     this.props.fetchUser(localStorage.token)
-  //   } else if(!localStorage.getItem("token") && this.props.currentUser != null ) {
-  //     console.log(this.props.currentUser)
-  //   }
-  // }
+
+class Home extends Component {
 
   render(){
     return(
       <div>
-        Welcome To Hoodoke!
+        <h1> Welcome to Hoodoke </h1>
+        <Segment padded>
+              <Link to="/login"> Login </Link>
+           <Divider horizontal>Or</Divider>
+             <Link to="/signup"> Signup </Link>
+        </Segment>
       </div>
     )
   }
 }
-
-// const mapStateToProps = state => {
-//   return {
-//     currentUser: state.currentUser
-//   }
-//
-// }
 
 
 export default Home

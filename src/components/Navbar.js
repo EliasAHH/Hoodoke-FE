@@ -2,6 +2,8 @@ import React, { Component,Fragment } from 'react';
 import {  Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { removeCurrentUser } from '../Redux/actioncreator'
+import 'semantic-ui-css/semantic.min.css';
+import { Button, Menu } from 'semantic-ui-react'
 
 
 class Navbar extends Component {
@@ -12,12 +14,20 @@ class Navbar extends Component {
 
   whatToDisplay = () => {
     if (localStorage.token === undefined) {
-      return (<Fragment>
-        <Link to="/login"> Login </Link>
-        <Link to="/Signup">Signup</Link>
-      </Fragment>)
+      return (<Menu>
+                <Menu.Item>
+                  <Link to="/login"> Login </Link>
+                </Menu.Item >
+                <Menu.Item>
+                  <Link to="/Signup">Signup</Link>
+                </Menu.Item>
+              </Menu>)
     } else {
-      return <Link to="/home" onClick={this.handleLogout}> Logout </Link>
+      return (<Menu>
+                <Menu.Item>
+                  <Link to="/home" onClick={this.handleLogout}> Logout </Link>
+                </Menu.Item>
+            </Menu>)
     }
 
   }

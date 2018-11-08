@@ -9,14 +9,13 @@ import SpeechRecognition from 'react-speech-recognition'
 
 
   handleClick= (e) => {
-    console.log("this is the listening boolenan ",this.props.listening, 'this is the start recognition function', this.props.startListening )
     let song = document.querySelector("#song")
     if (this.props.toggle === false) {
       song.play()
       this.incrementor = setInterval(() =>
       this.props.incrementSeconds()
 
-     , 1000);
+     , 100);
       console.log("SONG IS PLAYING")
     } else {
         song.pause()
@@ -34,8 +33,7 @@ import SpeechRecognition from 'react-speech-recognition'
 
   }
   render(){
-
-    console.log(this.props)
+    console.log(this.props.savedLyric)
     return (
       <div>
         <button onClick={this.handleClick}> Click me to start </button>
@@ -53,7 +51,8 @@ const renderSongPath = (currentSong) => {
 const mapStateToProps = state => {
   return {
     toggle: state.playing,
-    currentSong:state.currentSong
+    currentSong:state.currentSong,
+    savedLyric: state.savedLyric
   }
 
 }

@@ -27,7 +27,7 @@ class App extends Component {
         <Route path='/signup'  component={Signup}/>
         <Route path='/jukebox/:name' component={Player} />
         <Route path='/songs' component={Songselection} />
-        <Route exact path='/' component={Home} />
+        <Route path='/home' component={Home} />
       </div>
     )
   }

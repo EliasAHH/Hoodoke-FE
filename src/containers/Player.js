@@ -20,8 +20,8 @@ class JukeBox extends Component {
     }
 
     renderLyrics = () => {
-         for (let i=0; i< this.props.myLyrics.length -1;i++) {
-          if(this.props.myLyrics[i].timestamp < this.props.currentTime &&                       this.props.myLyrics[i+1].timestamp > this.props.currentTime){
+         for (let i=0; i< this.props.myLyrics.length -1 ;i++) {
+          if(this.props.myLyrics[i].timestamp < this.props.currentTime && this.props.myLyrics[i+1].timestamp > this.props.currentTime){
             return <Lyrics  key={this.props.myLyrics[i].timestamp} lyric={this.props.myLyrics[i]} />
             }
         }

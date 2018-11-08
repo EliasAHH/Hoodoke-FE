@@ -5,7 +5,8 @@ const initialState = {
   currentUser:null,
   authCurrentUser:{},
   songs:[],
-  currentSong: {}
+  currentSong: {},
+  savedLyric: ""
 
 }
 const reducer = (state=initialState,action) => {
@@ -18,7 +19,7 @@ const reducer = (state=initialState,action) => {
       return {...state, playing:action.payload}
 
     case "INCREMENT_SECONDS":
-      return {...state, secondsElapsed: state.secondsElapsed + 1}
+      return {...state, secondsElapsed: state.secondsElapsed + 0.1}
 
     case "RESET":
       return {...state, secondsElapsed:0}
@@ -38,6 +39,10 @@ const reducer = (state=initialState,action) => {
 
     case "CURRENT_SONG_CHOSEN":
       return {...state, currentSong:action.payload}
+
+    case "SAVE_LYRIC":
+      console.log("DID I HIT THE SAVE LYRIC REDUCER?")
+      return {...state, savedLyric:action.payload}
 
 
     default:

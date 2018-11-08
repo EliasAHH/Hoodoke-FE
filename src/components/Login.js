@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { handleSubmit } from '../Redux/actioncreator'
 import { withRouter } from 'react-router-dom'
+import 'semantic-ui-css/semantic.min.css';
+import { Button, Checkbox, Form } from 'semantic-ui-react'
 
 
 class Login extends Component {
@@ -26,13 +28,21 @@ class Login extends Component {
   render(){
     console.log()
     return (
-      <form onSubmit={this.submitHandler}>
-            <label>Username</label>
-            <input placeholder='Username' name="username" onChange={this.handleChange}/>
-            <label>Password</label>
-            <input type="password" placeholder='Password' name="password" onChange={this.handleChange}/>
-          <button type='submit'>Submit</button>
-      </form>
+          <Form onSubmit={this.submitHandler}>
+
+            <Form.Field>
+                <label>Username</label>
+                <input placeholder='Username' name="username" onChange={this.handleChange}/>
+            </Form.Field>
+            <Form.Field>
+                <label>Password</label>
+                <input type="password" placeholder='Password' name="password" onChange={this.handleChange}/>
+            </Form.Field>
+            <Form.Field>
+              <Button type='submit'>Submit </Button>
+            </Form.Field>
+
+        </Form>
     )
   }
 }
