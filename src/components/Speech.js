@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import SpeechRecognition from 'react-speech-recognition'
+import Audio from './Audio'
 
 
 class Speech extends Component {
@@ -14,25 +15,6 @@ class Speech extends Component {
       return null
     }
 
-    const handleClick = () => {
-      let listening = !this.state.toggle
-      this.setState({
-      toggle:listening
-    },listenSpeech)
-    }
-
-    const listenSpeech = () => {
-      if(this.state.toggle === true ) {
-        startListening()
-        console.log("in the true block", transcript,finalTranscript)
-      }
-      else{
-        console.log("in the else block")
-        stopListening()
-      }
-
-    }
-
     const componentWillUnmount = () => {
       stopListening()
       transcript = ""
@@ -40,8 +22,7 @@ class Speech extends Component {
 
     return (
       <div>
-        <button onClick={handleClick}>Reset</button>
-        <span>{finalTranscript}</span>
+        <Audio startListen={startListening} endListen={stopListening} final={finalTranscript}/>
       </div>
     )
   }

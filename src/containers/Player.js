@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Audio from '../components/Audio'
 import Speech from '../components/Speech'
 import Lyrics from '../components/Lyrics'
 import { connect } from 'react-redux'
@@ -32,7 +31,6 @@ class JukeBox extends Component {
       return (
         <div>
           <Speech />
-          <Audio />
           {this.renderLyrics()}
         </div>
       )

@@ -7,9 +7,18 @@ import SpeechRecognition from 'react-speech-recognition'
 
  class Music extends Component {
 
+   state ={
+     toggle:false
+   }
+
 
   handleClick= (e) => {
     let song = document.querySelector("#song")
+    let listening = !this.state.toggle
+    this.setState({
+    toggle:listening
+  },this.listenSpeech)
+
     if (this.props.toggle === false) {
       song.play()
       this.incrementor = setInterval(() =>
@@ -27,13 +36,27 @@ import SpeechRecognition from 'react-speech-recognition'
 
   }
 
+
+  listenSpeech = () => {
+    if(this.state.toggle === true ) {
+      this.props.startListen()
+      console.log("in the true block")
+    }
+    else{
+      console.log("in the else block")
+      this.props.endListen()
+    }
+
+  }
+
   componentWillUnmount() {
     clearInterval(this.incrementor)
     this.props.resetSeconds()
+    this.props.endListen()
 
   }
   render(){
-    console.log(this.props.savedLyric)
+    console.log("finalTranscript", this.props.final)
     return (
       <div>
         <button onClick={this.handleClick}> Click me to start </button>
