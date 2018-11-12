@@ -6,7 +6,8 @@ const initialState = {
   authCurrentUser:{},
   songs:[],
   currentSong: {},
-  savedLyric: ""
+  savedLyric: "",
+  score: 0
 
 }
 const reducer = (state=initialState,action) => {
@@ -43,6 +44,10 @@ const reducer = (state=initialState,action) => {
     case "SAVE_LYRIC":
       console.log("DID I HIT THE SAVE LYRIC REDUCER?")
       return {...state, savedLyric:action.payload}
+
+    case "UPDATE_LYRIC":
+      console.log("UPDATING LYRIC")
+      return {...state,score:state.score + 25 }
 
 
     default:

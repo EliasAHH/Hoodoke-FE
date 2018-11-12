@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Speech from '../components/Speech'
 import Lyrics from '../components/Lyrics'
+import Scoreboard from '../components/Scoreboard'
 import { connect } from 'react-redux'
 import { loadLyrics } from '../Redux/actioncreator'
 import here from "../lrc/here_without_you-3_doors_down.lrc"
@@ -27,9 +28,9 @@ class JukeBox extends Component {
     }
 
     render(){
-      console.log(Math.round(this.props.currentTime).toFixed(3))
       return (
         <div>
+          <Scoreboard />
           <Speech />
           {this.renderLyrics()}
         </div>

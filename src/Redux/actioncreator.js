@@ -108,8 +108,15 @@ export const resetSeconds = () => {
 
 }
 
-export const saveLyric = (lyric) => {
+export const saveLyric = lyric => {
   return dispatch => {
     dispatch({type:"SAVE_LYRIC", payload:lyric})
   }
+}
+
+export const updateScoreBoard = () => {
+  return dispatch => {
+    dispatch({type:"UPDATE_LYRIC"})
+  }
+
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
-import { togglePlaying, incrementSeconds, resetSeconds } from "../Redux/actioncreator"
+import { togglePlaying, incrementSeconds, resetSeconds, updateScoreBoard } from "../Redux/actioncreator"
 import SpeechRecognition from 'react-speech-recognition'
 
 
@@ -9,6 +9,14 @@ import SpeechRecognition from 'react-speech-recognition'
 
    state ={
      toggle:false
+   }
+
+   componentDidUpdate = () => {
+     console.log("hi")
+     if(this.props.final !== "" && this.props.savedLyric !== "" && this.props.final.includes(this.props.savedLyric) ) {
+       console.log("THIS IS FINAL", this.props.final,"THIS IS SAVEDLYRIC",this.props.savedLyric)
+       this.props.updateScoreBoard()
+     }
    }
 
 
@@ -82,4 +90,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps,{togglePlaying,incrementSeconds,resetSeconds})(Music)
+export default connect(mapStateToProps,{togglePlaying,incrementSeconds,resetSeconds,updateScoreBoard})(Music)
