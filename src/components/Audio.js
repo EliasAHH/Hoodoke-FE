@@ -65,7 +65,7 @@ import SpeechRecognition from 'react-speech-recognition'
 
   }
   render(){
-    console.log("finalTranscript", this.props.final)
+    console.log("transcript", this.props.transcript)
     return (
       <div>
         <button onClick={this.handleClick}> Click me to start </button>

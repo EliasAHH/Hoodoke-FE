@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getSongs } from '../Redux/actioncreator'
 import { connect } from 'react-redux'
 import Song from '../components/Song'
+import '../stylesheet/songselection.css'
 import 'semantic-ui-css/semantic.min.css';
 import { Container } from 'semantic-ui-react'
 
@@ -15,9 +16,9 @@ class Songselection extends Component {
   render(){
     const songs = this.props.songs.map(song=><Song key={song.id} song={song} />)
     return(
-      <Container text>
+      <div text id="SongContainer">
         {songs}
-      </Container>
+      </div>
     )
   }
 }

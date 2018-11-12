@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { storeSong } from '../Redux/actioncreator'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import '../stylesheet/songselection.css'
 
 class Song extends Component {
   handleClick = event => {
@@ -13,10 +14,10 @@ class Song extends Component {
 
   render(){
     const { artist_name, song_name } = this.props.song
-    
+
     return(
-        <div onClick={this.handleClick}>
-          Artist Name : {artist_name} -  Song Name: {song_name}
+        <div onClick={this.handleClick} className="song">
+          {artist_name} - {song_name}
         </div>
 
     )

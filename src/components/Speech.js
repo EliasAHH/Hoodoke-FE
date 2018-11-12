@@ -4,28 +4,24 @@ import Audio from './Audio'
 
 
 class Speech extends Component {
-  state = {
-    toggle:false
-  }
-
   render() {
-    const { transcript, resetTranscript, browserSupportsSpeechRecognition, startListening, stopListening, finalTranscript, recognition } = this.props
+
+    const { transcript, resetTranscript, browserSupportsSpeechRecognition, startListening, stopListening, finalTranscript } = this.props
+
 
     if (!browserSupportsSpeechRecognition) {
-      return null
-    }
+     return null
+   }
+
 
     return (
       <div>
-        <Audio startListen={startListening} endListen={stopListening} final={finalTranscript}/>
+        <Audio startListen={startListening} endListen={stopListening} final={finalTranscript} transcript={transcript}/>
       </div>
     )
   }
 }
-
 const options = {
   autoStart: false
 }
-
-
-export default SpeechRecognition(options)(Speech)
+ export default SpeechRecognition(options)(Speech)

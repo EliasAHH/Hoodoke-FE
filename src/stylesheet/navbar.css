@@ -1,0 +1,9 @@
+div.ui.menu {
+  background:#167889;
+  border-radius: 0;
+  color: white;
+}
+
+div.item a{
+  color:white;
+}

@@ -3,6 +3,7 @@ import {  Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { removeCurrentUser } from '../Redux/actioncreator'
 import 'semantic-ui-css/semantic.min.css';
+import '../stylesheet/navbar.css'
 import { Button, Menu } from 'semantic-ui-react'
 
 
@@ -14,7 +15,7 @@ class Navbar extends Component {
 
   whatToDisplay = () => {
     if (localStorage.token === undefined) {
-      return (<Menu>
+      return (<Menu className="menu">
                 <Menu.Item>
                   <Link to="/login"> Login </Link>
                 </Menu.Item >
@@ -23,7 +24,7 @@ class Navbar extends Component {
                 </Menu.Item>
               </Menu>)
     } else {
-      return (<Menu>
+      return (<Menu className="menu">
                 <Menu.Item>
                   <Link to="/home" onClick={this.handleLogout}> Logout </Link>
                 </Menu.Item>

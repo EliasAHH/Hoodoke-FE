@@ -8,6 +8,7 @@ import here from "../lrc/here_without_you-3_doors_down.lrc"
 import wreck from "../lrc/wrecking_ball-miley_cyrus.lrc"
 import backstreet from "../lrc/i_want_it_that_way-backstreet_boys.lrc"
 import firework from '../lrc/firework-katy_perry.lrc'
+import '../stylesheet/player.css'
 
 
 class JukeBox extends Component {
@@ -29,10 +30,10 @@ class JukeBox extends Component {
 
     render(){
       return (
-        <div>
-          <Scoreboard />
-          <Speech />
+        <div id="jukebox">
+          {/* <Scoreboard /> */}
           {this.renderLyrics()}
+          <Speech />
         </div>
       )
     }

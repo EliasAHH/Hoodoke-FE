@@ -1,0 +1,19 @@
+body {
+  background: #e8e9ea;
+}
+#SongContainer{
+text-align: center;
+font-size: 20px;
+margin-top: 10px;
+height: 600px;
+/* overflow: scroll; */
+}
+
+.song:hover{
+  color:red;
+  cursor:pointer;
+}
+
+.song {
+  margin-top: 15px;
+}
