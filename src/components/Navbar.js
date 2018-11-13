@@ -15,20 +15,23 @@ class Navbar extends Component {
 
   whatToDisplay = () => {
     if (localStorage.token === undefined) {
-      return (<Menu className="menu">
-                <Menu.Item>
+      return (<div className="menu">
+                <div className="menu-item">
+                  <Link to="/home">Hoodoke</Link>
+                </div>
+                <div className="menu-item right">
                   <Link to="/login"> Login </Link>
-                </Menu.Item >
-                <Menu.Item>
+                </div >
+                <div className="menu-item right">
                   <Link to="/Signup">Signup</Link>
-                </Menu.Item>
-              </Menu>)
+                </div>
+              </div>)
     } else {
-      return (<Menu className="menu">
-                <Menu.Item>
+      return (<div className="menu">
+                <div className="menu-item">
                   <Link to="/home" onClick={this.handleLogout}> Logout </Link>
-                </Menu.Item>
-            </Menu>)
+                </div>
+            </div>)
     }
 
   }

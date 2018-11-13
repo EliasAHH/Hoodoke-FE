@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { handleSignup } from '../Redux/actioncreator'
 import {withRouter} from 'react-router-dom'
+import { Button, Checkbox, Form } from 'semantic-ui-react'
 
 
 class Login extends Component {
@@ -26,15 +27,22 @@ class Login extends Component {
 
   render(){
     return (
-      <form onSubmit={this.submitHandler}>
-            <label>Email</label>
-            <input placeholder='Email' name="email" onChange={this.handleChange}/>
-            <label>Username</label>
-            <input placeholder='Username' name="username" onChange={this.handleChange}/>
-            <label>Password</label>
-            <input type="password" placeholder='Password' name="password" onChange={this.handleChange}/>
-          <button type='submit'>Submit</button>
-      </form>
+      <Form onSubmit={this.submitHandler}>
+        <h1>Sign Up</h1>
+        <Form.Field>
+          <label>Email</label>
+          <input placeholder='Email' name="email" onChange={this.handleChange}/>
+        </Form.Field>
+        <Form.Field>
+          <label>Username</label>
+          <input placeholder='Username' name="username" onChange={this.handleChange}/>
+        </Form.Field>
+        <Form.Field>
+          <label>Password</label>
+          <input type="password" placeholder='Password' name="password" onChange={this.handleChange}/>
+        </Form.Field>
+        <Button type='submit'>Submit</Button>
+      </Form>
     )
   }
 }

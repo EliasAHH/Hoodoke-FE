@@ -12,7 +12,7 @@ import { saveLyric } from '../Redux/actioncreator'
     const { content, timestamp } = this.props.lyric
     return (
       <div>
-        {content}
+        <p> {content} </p> 
 
       </div>
     )

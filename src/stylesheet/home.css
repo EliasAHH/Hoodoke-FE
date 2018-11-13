@@ -1,0 +1,19 @@
+form.ui.form {
+  width: 350px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+form.ui.form h1 {
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.field {
+  width: 100%;
+}
+
+button.ui.button {
+  width: 150px;
+  margin-top: 20px;
+}

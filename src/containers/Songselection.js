@@ -16,9 +16,9 @@ class Songselection extends Component {
   render(){
     const songs = this.props.songs.map(song=><Song key={song.id} song={song} />)
     return(
-      <div text id="SongContainer">
+      <ul text id="SongContainer">
         {songs}
-      </div>
+      </ul>
     )
   }
 }

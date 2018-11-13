@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { togglePlaying, incrementSeconds, resetSeconds, updateScoreBoard } from "../Redux/actioncreator"
 import SpeechRecognition from 'react-speech-recognition'
-
+import "../stylesheet/player.css"
 
 
  class Music extends Component {
@@ -68,7 +68,7 @@ import SpeechRecognition from 'react-speech-recognition'
     console.log("transcript", this.props.transcript)
     return (
       <div>
-        <button onClick={this.handleClick}> Click me to start </button>
+        <button onClick={this.handleClick} id="songButton"> Click me to start </button>
         <audio id="song" src={renderSongPath(this.props.currentSong)}/>
       </div>
     )

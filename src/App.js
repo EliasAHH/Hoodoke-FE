@@ -8,6 +8,7 @@ import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Signup from './components/Signup'
 import Songselection from './containers/Songselection'
+import './App.css'
 
 
 class App extends Component {

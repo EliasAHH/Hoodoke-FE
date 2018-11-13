@@ -1,19 +1,28 @@
-body {
-  background: #e8e9ea;
-}
 #SongContainer{
-text-align: center;
-font-size: 20px;
-margin-top: 10px;
-height: 600px;
-/* overflow: scroll; */
-}
-
-.song:hover{
-  color:red;
-  cursor:pointer;
+  text-align: center;
+  font-size: 25px;
+  margin-top: 10px;
+  height: 660px;
+  /* overflow: scroll; */
+  background: black;
+  width: 55%;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 80px;
+  /* border: 2px solid #4a4a4a; */
 }
 
 .song {
-  margin-top: 15px;
+  margin-top: 25px;
+  list-style: none;
+  color: #00e3ff;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+.song:hover{
+  /* color:red; */
+  filter: hue-rotate(200deg);
+  cursor:pointer;
+  letter-spacing: 1px;
 }

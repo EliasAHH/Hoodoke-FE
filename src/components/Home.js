@@ -5,6 +5,7 @@ import Navbar from './Navbar'
 import {  Link, withRouter } from 'react-router-dom'
 import 'semantic-ui-css/semantic.min.css';
 import { Segment, Divider } from 'semantic-ui-react'
+import '../stylesheet/home.css'
 
 
 class Home extends Component {
@@ -13,11 +14,12 @@ class Home extends Component {
     return(
       <div>
         <h1> Welcome to Hoodoke </h1>
-        <Segment padded>
-              <Link to="/login"> Login </Link>
-           <Divider horizontal>Or</Divider>
-             <Link to="/signup"> Signup </Link>
-        </Segment>
+        {/* <Segment padded> */}
+              {/* <Link to="/login"> Login </Link> */}
+           {/* <Divider horizontal>Or</Divider> */}
+             {/* <Link to="/signup"> Signup </Link> */}
+
+        {/* </Segment> */}
       </div>
     )
   }

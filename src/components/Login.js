@@ -29,7 +29,7 @@ class Login extends Component {
     console.log()
     return (
           <Form onSubmit={this.submitHandler}>
-
+            <h1>Log In</h1>
             <Form.Field>
                 <label>Username</label>
                 <input placeholder='Username' name="username" onChange={this.handleChange}/>

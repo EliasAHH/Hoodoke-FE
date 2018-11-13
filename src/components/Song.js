@@ -16,9 +16,9 @@ class Song extends Component {
     const { artist_name, song_name } = this.props.song
 
     return(
-        <div onClick={this.handleClick} className="song">
+        <li onClick={this.handleClick} className="song">
           {artist_name} - {song_name}
-        </div>
+        </li>
 
     )
   }

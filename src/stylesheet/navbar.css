@@ -1,9 +1,26 @@
-div.ui.menu {
-  background:#167889;
+.menu {
+  background: #010101;
   border-radius: 0;
-  color: white;
+  border-bottom: 1px solid #6d6d6d;
 }
 
-div.item a{
-  color:white;
+.menu-item {
+  /* border-right: 1px solid #6d6d6d; */
+  display:inline-block;
+  padding: 15px;
+}
+
+.menu-item a {
+  color: #dedede;
+  font-size: 16px;
+  transition-duration: 0.5s;
+}
+
+.menu-item a:hover {
+  color: #00e3ff;
+  letter-spacing: 1px;
+}
+
+.right {
+  float: right;
 }

@@ -1,7 +1,26 @@
 #jukebox  {
-  display: inline-block;
-  position: absolute;
-  top: 40%;
-  left: 40%;
+  width: 700px;
+  height: 300px;
+  margin: 80px auto;
+  border: 2px #151515 solid;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+#songButton {
+  font-size: 34px;
+  border-radius: 17px;
+  border: 2px solid #00ff8c;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  font-family: 'Permanent Marker', cursive;
+  padding: 10px 30px;
+}
+
+#songButton:hover {
+  background: #00ff8c;
+  border: 2px solid white;
+  cursor: pointer;
 }

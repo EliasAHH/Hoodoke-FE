@@ -30,11 +30,11 @@ class JukeBox extends Component {
 
     render(){
       return (
-        <div id="jukebox">
-          {/* <Scoreboard /> */}
-          {this.renderLyrics()}
-          <Speech />
-        </div>
+          <div id="jukebox">
+            {/* <Scoreboard /> */}
+            {this.renderLyrics()}
+            <Speech />
+          </div>
       )
     }
   }
