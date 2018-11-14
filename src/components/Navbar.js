@@ -29,7 +29,7 @@ class Navbar extends Component {
     } else {
       return (<div className="menu">
                 <div className="menu-item">
-                  <Link to="/home" onClick={this.handleLogout}> Logout </Link>
+                  <Link to="/" onClick={this.handleLogout}> Logout </Link>
                 </div>
             </div>)
     }
