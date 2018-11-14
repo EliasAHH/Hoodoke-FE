@@ -12,10 +12,9 @@ import "../stylesheet/player.css"
    }
 
    componentDidUpdate = () => {
-     console.log("hi")
-     if(this.props.final !== "" && this.props.savedLyric !== "" && this.props.final.includes(this.props.savedLyric) ) {
-       console.log("THIS IS FINAL", this.props.final,"THIS IS SAVEDLYRIC",this.props.savedLyric)
-       this.props.updateScoreBoard()
+      if(this.props.final !== "" && this.props.savedLyric !== "" && this.props.final.includes(this.props.savedLyric) ) {
+        console.log("inside of the  componentDidUpdate if bloc")
+       // this.props.updateScoreBoard()
      }
    }
 
@@ -68,7 +67,7 @@ import "../stylesheet/player.css"
     console.log("transcript", this.props.transcript)
     return (
       <div>
-        <button onClick={this.handleClick} id="songButton"> Click me to start </button>
+        <button onClick={this.handleClick} id="songButton"> Start </button>
         <audio id="song" src={renderSongPath(this.props.currentSong)}/>
       </div>
     )

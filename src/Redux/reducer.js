@@ -7,7 +7,9 @@ const initialState = {
   songs:[],
   currentSong: {},
   savedLyric: "",
-  score: 0
+  score: 0,
+  error:null,
+  newSearch: null
 
 }
 const reducer = (state=initialState,action) => {
@@ -48,6 +50,15 @@ const reducer = (state=initialState,action) => {
     case "UPDATE_LYRIC":
       console.log("UPDATING LYRIC")
       return {...state,score:state.score + 25 }
+
+    case "SEARCH_TERM":
+      let newArray = state.songs.filter(song => song.artist_name.toLowerCase().includes(action.payload.toLowerCase()) || song.song_name.toLowerCase().includes(action.payload.toLowerCase()))
+      return {...state, newSearch:newArray}
+
+    case "EMPTY_SEARCH":
+    return {...state, newSearch:null}
+
+
 
 
     default:

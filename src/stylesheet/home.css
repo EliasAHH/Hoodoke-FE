@@ -17,3 +17,20 @@ button.ui.button {
   width: 150px;
   margin-top: 20px;
 }
+
+#home {
+  display: flex;
+}
+
+#home h1 {
+  color: red;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 150px;
+  margin: 100px auto;
+  transition-duration: 1.5s;
+}
+
+#home h1:hover {
+  filter: hue-rotate(280deg);
+  cursor: default;
+}

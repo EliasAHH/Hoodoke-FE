@@ -20,9 +20,15 @@ export const incrementSeconds =  seconds => {
 
 }
 
+const LogInSignUp = (response) => {
+  return {
+    type:"LOG_IN_SIGN_UP", payload:response
+  }
+}
+
 export const handleSubmit = (user) => {
   return dispatch => {
-    fetch("http://localhost:3001/auth", {
+    return fetch("http://localhost:3001/auth", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -30,14 +36,20 @@ export const handleSubmit = (user) => {
       body: JSON.stringify(user)
     })
     .then(response => response.json())
-    .then(response =>
-      dispatch({type:"LOG_IN_SIGN_UP", payload:response}))
-    }
+    .then(response => {
+      if(!response.error) {
+      dispatch({type:"LOG_IN_SIGN_UP", payload:response})
+    } else {
+      alert(response.error)
+      throw new Error(response.error)
   }
+})
+  }
+}
 
   export const handleSignup = (user) => {
     return dispatch => {
-      fetch('http://localhost:3001/users', {
+      return fetch('http://localhost:3001/users', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -45,10 +57,15 @@ export const handleSubmit = (user) => {
         body: JSON.stringify(user)
       })
       .then(response => response.json())
-      .then(response =>
-        dispatch({type:"LOG_IN_SIGN_UP",payload:response}))
-      }
-
+      .then(response => {
+        if(!response.error) {
+          dispatch({type:"LOG_IN_SIGN_UP", payload:response})
+        }else{
+          response.error.map(error => alert(error))
+          throw new Error(response.error)
+        }
+      })
+    }
   }
 
 export const loadLyrics = (song) => {
@@ -119,4 +136,15 @@ export const updateScoreBoard = () => {
     dispatch({type:"UPDATE_LYRIC"})
   }
 
+}
+
+
+export const searchThis = (searchTerm) => {
+  return dispatch => {
+    if(searchTerm !== "") {
+      dispatch({type:"SEARCH_TERM", payload:searchTerm})
+    } else {
+      dispatch({type:"EMPTY_SEARCH"})
+    }
+  }
 }

@@ -12,8 +12,8 @@ class Home extends Component {
 
   render(){
     return(
-      <div>
-        <h1> Welcome to Hoodoke </h1>
+      <div id="home">
+        <h1>Hoodoke </h1>
         {/* <Segment padded> */}
               {/* <Link to="/login"> Login </Link> */}
            {/* <Divider horizontal>Or</Divider> */}
