@@ -3,12 +3,35 @@ import Speech from '../components/Speech'
 import Lyrics from '../components/Lyrics'
 import Scoreboard from '../components/Scoreboard'
 import { connect } from 'react-redux'
+import '../stylesheet/player.css'
 import { loadLyrics, saveScore } from '../Redux/actioncreator'
 import here from "../lrc/here_without_you-3_doors_down.lrc"
 import wreck from "../lrc/wrecking_ball-miley_cyrus.lrc"
 import backstreet from "../lrc/i_want_it_that_way-backstreet_boys.lrc"
-import firework from '../lrc/firework-katy_perry.lrc'
-import '../stylesheet/player.css'
+import toto from '../lrc/africa-toto.lrc'
+import neyo from '../lrc/because_of_you-ne_yo.lrc'
+import queen from '../lrc/bohemian_rhapsody-queen.lrc'
+import george from '../lrc/careless_whisper-george_michael.lrc'
+
+import dancing from '../lrc/dancing_queen-abba.lrc'
+import touch from '../lrc/everytime_we_touch-cascada.lrc'
+import alicia from '../lrc/if_i_aint_got_you-alicia_keys.lrc'
+import beyonce from '../lrc/irreplaceable-beyonce.lrc'
+import jenny from '../lrc/jenny_from_the_block-jennifer_lopez.lrc'
+import knock from '../lrc/knock_you_down-keri_hilson.lrc'
+import killers from '../lrc/mr_brightside-the_killers.lrc'
+import scrub from '../lrc/no_scrubs-tlc.lrc'
+import clout from '../lrc/clout-ty_dolla_sign.lrc'
+import piano from '../lrc/piano_man-billy_joel.lrc'
+import september from '../lrc/september-earth_wind_fire.lrc'
+import adele from '../lrc/set_fire_to_the_rain-adele.lrc'
+import sing from '../lrc/sing-my_chemical_romance.lrc'
+import valerie from '../lrc/valerie-amy_winehouse.lrc'
+import maui from '../lrc/your_welcome-maui.lrc'
+
+
+
+
 
 
 class JukeBox extends Component {
@@ -16,6 +39,22 @@ class JukeBox extends Component {
   componentDidMount = () => {
     this.props.loadLyrics(this.props.currentSong)
     this.createCanvas()
+    console.log(dancing)
+    console.log(touch)
+    console.log(alicia)
+    console.log(beyonce)
+    console.log(jenny)
+    console.log(knock)
+    console.log(killers)
+    console.log(scrub)
+    console.log(piano)
+    console.log(september)
+    console.log(adele)
+    console.log(sing)
+    console.log(valerie)
+    console.log(maui)
+
+    console.log(this.props.currentSong)
   }
 
  // creates a background effect for the canvas just so that there would be a little light atleast
