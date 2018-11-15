@@ -11,7 +11,6 @@ import '../stylesheet/player.css'
 
   render(){
     const { content, timestamp } = this.props.lyric
-    console.log(content)
     return (
       <div id="lyrics">
         <p className="artist-name">{this.props.currentSong.artist_name}</p>

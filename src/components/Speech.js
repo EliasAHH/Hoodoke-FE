@@ -2,11 +2,10 @@ import React, {Component} from 'react'
 import SpeechRecognition from 'react-speech-recognition'
 import Audio from './Audio'
 
-
 class Speech extends Component {
   render() {
 
-    const { transcript, resetTranscript, browserSupportsSpeechRecognition, startListening, stopListening, finalTranscript } = this.props
+    const { recognition,transcript, resetTranscript, browserSupportsSpeechRecognition, startListening, stopListening, finalTranscript } = this.props
 
 
     if (!browserSupportsSpeechRecognition) {
@@ -16,7 +15,7 @@ class Speech extends Component {
 
     return (
       <div id="audio">
-        <Audio startListen={startListening} endListen={stopListening} final={finalTranscript} transcript={transcript}/>
+        <Audio startListen={startListening} endListen={stopListening} final={finalTranscript} transcript={transcript} reset={resetTranscript} recognition={recognition}/>
       </div>
     )
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { togglePlaying, incrementSeconds, resetSeconds, updateScoreBoard } from "../Redux/actioncreator"
-import SpeechRecognition from 'react-speech-recognition'
+import { withRouter } from 'react-router-dom'
 import "../stylesheet/player.css"
 
 
@@ -11,10 +11,20 @@ import "../stylesheet/player.css"
      toggle:false
    }
 
-   componentDidUpdate = () => {
-      if(this.props.final !== "" && this.props.savedLyric !== "" && this.props.final.includes(this.props.savedLyric) ) {
-        console.log("inside of the  componentDidUpdate if bloc")
-       // this.props.updateScoreBoard()
+   componentDidUpdate = (prevProps, prevState, snapshot) => {
+     // console.log("UPDATED")
+
+      console.log("I said: ", this.props.transcript)
+      if(this.props.transcript !== "" && this.props.savedLyric !== "" && this.props.savedLyric.includes(this.props.transcript.toLowerCase()) ) {
+        console.log("INSIDE OF THE UPDATE CONDITIONAL")
+        // what if in here i check to see if they match? and if they do i post it to the board but then i restart the final transcript right after so that it listens to the next line and it stops the whole problem of not being able to asnwer everything at the same time.  keep it mind that if we do this we might need to alter what's on the bottom over there so check that.
+      this.props.reset()
+       this.props.updateScoreBoard()
+
+     } else {
+       setTimeout(()=>{
+         this.props.reset()
+       },700)
      }
    }
 
@@ -56,18 +66,24 @@ import "../stylesheet/player.css"
 
   }
 
+  handleRedirect = () => {
+    this.props.history.push('/songs')
+  }
+
   componentWillUnmount() {
     clearInterval(this.incrementor)
+    this.props.reset()
     this.props.togglePlaying(false)
     this.props.resetSeconds()
     this.props.endListen()
 
+
   }
   render(){
-    console.log("transcript", this.props.transcript)
     return (
-      <div>
+      <div id="button-div">
         <button onClick={this.handleClick} id="songButton"> Start </button>
+        <button onClick={this.handleRedirect} id="redirect"> SongSelection </button>
         <audio id="song" src={renderSongPath(this.props.currentSong)}/>
       </div>
     )
@@ -89,4 +105,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps,{togglePlaying,incrementSeconds,resetSeconds,updateScoreBoard})(Music)
+export default withRouter(connect(mapStateToProps,{togglePlaying,incrementSeconds,resetSeconds,updateScoreBoard})(Music))

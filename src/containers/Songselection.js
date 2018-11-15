@@ -21,7 +21,6 @@ class Songselection extends Component {
   }
 
   render(){
-    console.log(this.props.newSearch)
     return(
     <Fragment>
       <Search />

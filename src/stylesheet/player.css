@@ -1,15 +1,33 @@
 #jukebox  {
-  width: 713px;
+  width: 763px;
   height: 300px;
   margin: 80px auto;
-  border: 2px #151515 solid;
+  /* border: 2px #151515 solid; */
   border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+#button-div {
+  position: absolute;
+  top: 420px;
+  right: 40%;
+  margin-right: -206px
+}
+
 #songButton {
+  font-size: 34px;
+  border-radius: 17px;
+  border: 2px solid #00ff8c;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  font-family: 'Permanent Marker', cursive;
+  padding: 10px 30px;
+  margin: 30px;
+}
+
+#redirect {
   font-size: 34px;
   border-radius: 17px;
   border: 2px solid #00ff8c;
@@ -35,8 +53,8 @@ p {
 }
 
 #lyrics {
-  position: relative;
-  top: 0;
+  position: absolute;
+  top: 25%;
   text-align: center;
   font-size: 22px;
   margin: 20px 10px;
@@ -59,4 +77,12 @@ p {
 .lyric {
   color: red;
   font-size: 30px;
+  text-shadow: 0 0 6px white;
+}
+
+
+
+canvas {
+  display: inline-block;
+  z-index: -1;
 }

@@ -17,7 +17,7 @@ class Navbar extends Component {
     if (localStorage.token === undefined) {
       return (<div className="menu">
                 <div className="menu-item">
-                  <Link to="/home">Hoodoke</Link>
+                  <Link to="/">Hoodoke</Link>
                 </div>
                 <div className="menu-item right">
                   <Link to="/login"> Login </Link>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Player from './containers/Player'
 import Login from  './components/Login'
-import { withRouter,Route, Router } from 'react-router-dom'
+import { withRouter,Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchUser } from './Redux/actioncreator'
 import Home from './components/Home'

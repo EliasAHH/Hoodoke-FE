@@ -148,3 +148,29 @@ export const searchThis = (searchTerm) => {
     }
   }
 }
+
+
+export const saveScore = (user,song,score) => {
+  return dispatch  => {
+    fetch("http://localhost:3001/scores", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+    },
+    body: JSON.stringify({user_id:user, song_id:song,score:score})
+  })
+
+  }
+
+}
+
+// export const fetchHighestScore = (id) => {
+//   return dispatch => {
+//     fetch(`http://localhost:3001/users/${id}`)
+//     .then(response => response.json())
+//     .then(response => dispatch({
+//       type:"HIGHEST_SCORE", payload:response.scores
+//     }))
+//   }
+// }

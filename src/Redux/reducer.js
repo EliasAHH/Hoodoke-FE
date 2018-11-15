@@ -9,7 +9,8 @@ const initialState = {
   savedLyric: "",
   score: 0,
   error:null,
-  newSearch: null
+  newSearch: null,
+  highestScore: null
 
 }
 const reducer = (state=initialState,action) => {
@@ -57,6 +58,12 @@ const reducer = (state=initialState,action) => {
 
     case "EMPTY_SEARCH":
     return {...state, newSearch:null}
+
+    // case "HIGHEST_SCORE":
+    // console.log(action.payload)
+    // debugger
+    //
+    // return {...state,highestScore:action.payload}
 
 
 
