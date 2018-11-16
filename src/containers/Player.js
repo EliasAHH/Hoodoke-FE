@@ -28,6 +28,8 @@ import adele from '../lrc/set_fire_to_the_rain-adele.lrc'
 import sing from '../lrc/sing-my_chemical_romance.lrc'
 import valerie from '../lrc/valerie-amy_winehouse.lrc'
 import maui from '../lrc/your_welcome-maui.lrc'
+import cher from '../lrc/believe-cher.lrc'
+import firework from '../lrc/firework-katy_perry.lrc'
 
 
 
@@ -53,6 +55,7 @@ class JukeBox extends Component {
     console.log(sing)
     console.log(valerie)
     console.log(maui)
+    console.log(cher)
 
     console.log(this.props.currentSong)
   }
