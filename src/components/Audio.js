@@ -15,11 +15,10 @@ import "../stylesheet/player.css"
      // console.log("UPDATED")
 
       console.log("I said: ", this.props.transcript)
-      if(this.props.transcript !== "" && this.props.savedLyric !== "" && this.props.savedLyric.includes(this.props.transcript.toLowerCase()) ) {
-        console.log("INSIDE OF THE UPDATE CONDITIONAL")
+      if(this.props.transcript !== "" && this.props.savedLyric !== "" &&         this.props.savedLyric.includes(this.props.transcript.toLowerCase()) ) {
         // what if in here i check to see if they match? and if they do i post it to the board but then i restart the final transcript right after so that it listens to the next line and it stops the whole problem of not being able to asnwer everything at the same time.  keep it mind that if we do this we might need to alter what's on the bottom over there so check that.
-      this.props.reset()
-       this.props.updateScoreBoard()
+        this.props.reset()
+        this.props.updateScoreBoard()
 
      } else {
        setTimeout(()=>{
@@ -76,6 +75,8 @@ import "../stylesheet/player.css"
     this.props.togglePlaying(false)
     this.props.resetSeconds()
     this.props.endListen()
+
+
 
 
   }
