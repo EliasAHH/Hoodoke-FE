@@ -165,12 +165,25 @@ export const saveScore = (user,song,score) => {
 
 }
 
-// export const fetchHighestScore = (id) => {
-//   return dispatch => {
-//     fetch(`http://localhost:3001/users/${id}`)
-//     .then(response => response.json())
-//     .then(response => dispatch({
-//       type:"HIGHEST_SCORE", payload:response.scores
-//     }))
-//   }
-// }
+export const scoreSong = (score, user, song) => {
+  return dispatch => {
+    fetch('http://localhost:3001/scores', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({score:score, user_id:user,song_id:song})
+    })
+  }
+}
+
+export const fetchHighestScore = (songId) => {
+  return dispatch => {
+    fetch(`http://localhost:3001/songs/${songId}`)
+    .then(response => response.json())
+    .then(response => dispatch({
+      type:"HIGHEST_SCORE", payload:response
+    }))
+  }
+}

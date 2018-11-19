@@ -59,14 +59,15 @@ const reducer = (state=initialState,action) => {
     case "EMPTY_SEARCH":
     return {...state, newSearch:null}
 
-    // case "HIGHEST_SCORE":
-    // console.log(action.payload)
-    // debugger
-    //
-    // return {...state,highestScore:action.payload}
+    case "HIGHEST_SCORE":
+    let scoreArray = action.payload.scores.map(score =>score.score)
+    let sortedArray = scoreArray.sort((a,b) => b-a)
+    let userArray =  action.payload.scores.filter(el => el.score === sortedArray[0])
+
+    debugger
 
 
-
+    return {...state,highestScore:sortedArray[0],}
 
     default:
     return state
