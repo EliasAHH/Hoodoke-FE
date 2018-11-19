@@ -4,7 +4,7 @@ import Lyrics from '../components/Lyrics'
 import Scoreboard from '../components/Scoreboard'
 import { connect } from 'react-redux'
 import '../stylesheet/player.css'
-import { loadLyrics, saveScore } from '../Redux/actioncreator'
+import { loadLyrics, saveScore, resetScore } from '../Redux/actioncreator'
 import here from "../lrc/here_without_you-3_doors_down.lrc"
 import wreck from "../lrc/wrecking_ball-miley_cyrus.lrc"
 import backstreet from "../lrc/i_want_it_that_way-backstreet_boys.lrc"
@@ -116,6 +116,7 @@ class JukeBox extends Component {
 
   componentWillUnmount = () => {
     this.props.saveScore(this.props.currentUser.id,this.props.currentSong.id,this.props.score)
+    this.props.resetScore()
   }
 
   // this checks the timestamp of the first lyrics against the current time and also checks it agains the timestampe of the upcoming lyric and current time to continously render the same lyric until it's time to render out the next one
@@ -159,4 +160,4 @@ class JukeBox extends Component {
 
 
 
-export default connect(mapStateToProps,{ loadLyrics, saveScore })(JukeBox)
+export default connect(mapStateToProps,{ loadLyrics, saveScore, resetScore })(JukeBox)

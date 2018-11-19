@@ -63,11 +63,10 @@ const reducer = (state=initialState,action) => {
     let scoreArray = action.payload.scores.map(score =>score.score)
     let sortedArray = scoreArray.sort((a,b) => b-a)
     let userArray =  action.payload.scores.filter(el => el.score === sortedArray[0])
+    return {...state,highestScore:userArray[0]}
 
-    debugger
-
-
-    return {...state,highestScore:sortedArray[0],}
+    case "RESET_SCORE":
+    return {...state,score:0}
 
     default:
     return state

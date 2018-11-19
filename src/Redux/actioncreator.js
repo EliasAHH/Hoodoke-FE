@@ -187,3 +187,11 @@ export const fetchHighestScore = (songId) => {
     }))
   }
 }
+
+export const resetScore = () => {
+  return dispatch => {
+    dispatch({
+      type:"RESET_SCORE"
+    })
+  }
+}
