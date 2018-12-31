@@ -11,7 +11,7 @@ A simple app that uses Web Speech API to match what you said to what's on  the s
 ## Hoodoke Backend!
 
 This app also uses a rails backend to help with the songs. <br>
-Open [https://github.com/EliasAHH/hoodoke-Backend](Hoodoke Backend)
+Open [https://github.com/EliasAHH/hoodoke-Backend](backend)
 
 
 
