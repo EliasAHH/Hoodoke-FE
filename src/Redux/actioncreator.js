@@ -162,12 +162,7 @@ export const saveScore = (user,song,score) => {
   })
 
   }
-  .then(r=> r.json())
-  .then(getTickets)
-}
 
-function getTickets(data) {
-  console.log(data)
 }
 
 export const scoreSong = (score, user, song) => {

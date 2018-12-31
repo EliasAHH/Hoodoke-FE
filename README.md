@@ -1,9 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Hoodoke!
+Do you love to sing along to your favorite songs?  <br>
+Have you ever just wanted to go karaokeing but the bar was full? <br>
+
+Now this is the app that bring it to you.
+
+A simple app that uses Web Speech API to match what you said to what's on  the screen to determine a score. All while singing along to the song.
+
+## Hoodoke Backend!
+
+This app also uses a rails backend to help with the songs. <br>
+Open [https://github.com/EliasAHH/hoodoke-Backend](Hoodoke Backend)
 
 
-
-lyric => <Lyrics key={lyric.timestamp} lyric={lyric}/>)
 
 ## Available Scripts
 
